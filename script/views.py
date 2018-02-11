@@ -135,7 +135,7 @@ class TreatmentCreate(CreateView):
             patient_medical_treatment = document.cleaned_data['identity']
             document = DiseaseForm()
 
-            return redirect('script:script_disease_create')
+            return redirect('script:script_treatment_create')
 
         context = {'form':document, 'patient_medical_treatment':patient_medical_treatment}
         return render(request, self.template_, context)
