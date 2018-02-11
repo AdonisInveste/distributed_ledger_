@@ -1,0 +1,17 @@
+{% extends  parent_template|default:"script/base*template_script.html"%}
+
+
+{% block content%}
+
+
+<div class="">
+  <a href="{% url 'script:script_patient_create' %}"> Create new patient </a>
+</div>
+<ul>
+  {% for patient in patient_list %}
+  <li>
+    <a href="">{{patient.patient_identity}}</a>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}

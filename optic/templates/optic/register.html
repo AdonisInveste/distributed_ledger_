@@ -1,0 +1,23 @@
+{% extends  parent_template|default:"optic/base*template_optic.html"%}
+{% block head %}
+<title>Sign Up</title>
+{% endblock %}
+
+
+{% block body %}
+
+<form method = "post">
+
+		{% csrf_token %}
+
+<div class = "form-group">
+
+	{{ form.as_ul}}
+
+						<button class = "btn btn-primary btn-large" type="submit">Sign Up</button>
+</div>
+
+
+</form>
+
+{% endblock %}

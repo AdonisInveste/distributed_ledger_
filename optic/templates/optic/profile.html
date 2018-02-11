@@ -1,0 +1,22 @@
+{% extends  parent_template|default:"optic/base*template_optic.html"%}
+
+{% block head %}
+    <title>Your Identity</title>
+{% endblock %}
+
+
+{% block sidebar %}
+{% endblock %}
+
+
+{% block body %}
+
+<li class="list-group-item" style = "font-family: Mono">
+
+<p class="h1 text-muted" >{{ user.first_name  }} {{ user.last_name }}</p>
+
+<hr>
+<p>Email Address : {{ user.email }}</p>
+</li>
+
+{% endblock %}
