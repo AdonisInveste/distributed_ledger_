@@ -1,0 +1,15 @@
+{% extends  parent_template|default:"script/base*template_script.html"%}
+
+
+
+{% block content %}
+
+<form class="" action="" method="post">
+  {% csrf_token %}
+  {{form.as_p}}
+
+  <button type="submit" name="button">
+    Create Identity
+  </button>
+</form>
+{% endblock %}
