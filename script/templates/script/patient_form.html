@@ -8,8 +8,49 @@ Create Identity
 {% block content %}
 
 <form class="" action="" method="post">
+
   {% csrf_token %}
-  {{form.as_p}}
+
+      {% if form.non_field_errors %}
+          <div class="alert alert-danger" role="alert">
+            {% for error in form.non_field_errors %}
+              {{ error }}
+            {% endfor %}
+          </div>
+      {% endif %}
+
+      {{form.NIS.errors}}
+      {{form.NIS}}
+
+      {{form.contact.errors}}
+      {{form.contact}}
+
+      {{form.first_name.errors}}
+      {{form.first_name}}
+
+
+      {{form.last_name.errors}}
+      {{form.last_name}}
+
+      {{form.born.errors}}
+      {{form.born}}
+
+
+      {{form.location.errors}}
+      {{form.location}}
+
+
+      {{form.email_address.errors}}
+      {{form.email_address}}
+
+
+        {{form.gender.errors}}
+        {{form.gender}}
+
+
+    </div>
+
+  </div>
 
   <button type="submit" name="button">
     Create Identity

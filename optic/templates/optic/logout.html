@@ -1,10 +1,10 @@
 {% extends  parent_template|default:"optic/base*template_optic.html"%}
-{% block head %}
-      <title>Farwell!</title>
+{% block title %}
+      Farwell!
 {% endblock %}
 
 
-{% block body %}
+{% block content %}
 <p class="display-4">Farewell. Next time!</p>
 
 <a href="{% url 'optic:login'%}" class="text-muted">Sign In</a>

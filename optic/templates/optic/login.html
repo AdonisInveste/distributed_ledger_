@@ -1,11 +1,11 @@
 {% extends  parent_template|default:"optic/base*template_optic.html"%}
 
-{% block head %}
-      <title>Sign In</title>
+{% block title %}
+    Sign In
 {% endblock %}
 
 
-{% block body %}
+{% block content %}
 
           {% if form.errors %}
           <p>Your username and password didn't match. Please try again.</p>

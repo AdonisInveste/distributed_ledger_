@@ -5,7 +5,7 @@ from django.contrib.auth.views import login, logout, password_reset, password_re
 
 
 urlpatterns = [
-          url(r'^$', views.vedic_view, name = 'vedic_view'),
+          url(r'^$', views.root, name = 'root'),
           url(r'^login/$', login, {'template_name' : 'optic/login.html'}, name = 'login'),
           url(r'^logout/$', logout, {'template_name' : 'optic/logout.html'}, name = 'logout'),
           url(r'^register/$', views.register_view, name = 'register'),

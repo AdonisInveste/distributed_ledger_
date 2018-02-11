@@ -7,8 +7,20 @@ Create Condition
 {% block content %}
 
 <form class="" action="" method="post">
-  {% csrf_token %}
-  {{form.as_p}}
+{% csrf_token %}
+
+<div class="row">
+<div class="six column">
+  {{form.identity.errors}}
+  {{form.identity}}
+
+<div class="row">
+  {{form.description.errors}}
+  {{form.description}}
+</div>
+
+</div>
+</div>
 
   <button type="submit" name="button">
     Create Identity

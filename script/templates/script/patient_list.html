@@ -6,6 +6,7 @@ patient List
 
 {% block content%}
 
+{% csrf_token %}
 
 <div class="">
   <a href="{% url 'script:script_patient_create' %}"> Create new patient </a>
@@ -17,4 +18,5 @@ patient List
   </li>
   {% endfor %}
 </ul>
+</div>
 {% endblock %}

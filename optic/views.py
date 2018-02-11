@@ -2,8 +2,8 @@ from django.shortcuts import render, reverse, redirect
 from optic.forms import Create_user, Update_user
 from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 
-def vedic_view(request):
-    return render(request, 'optic/vedic_view.html')
+def root(request):
+    return render(request, 'optic/root.html')
 
 def register_view(request):
 

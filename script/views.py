@@ -27,14 +27,13 @@ class IdentityCreate(CreateView):
 
             patient_document_authentication = document.save(commit=False)
             patient_document_authentication.user = request.user
-            patient_document_authentication.save()
-
-            patient_medical_id = document.cleaned_data['NIS']
+            patient_identity = patient_document_authentication.save()
+            patient_medical_id  = document.cleaned_data['NIS']
             document = IdentityForm()
 
             return redirect('script:script_condition_create')
 
-        context = {'form':document, 'patient_medical_id':patient_medical_id}
+        context = {'form':document, 'patient_medical_id ':patient_medical_id}
         return render(request, self.template_, context)
 
 class IdentityList(ListView):
@@ -65,8 +64,7 @@ class ConditionCreate(CreateView):
 
             patient_document_authentication = document.save(commit=False)
             patient_document_authentication.user = request.user
-            patient_document_authentication.save()
-
+            patient_condition = patient_document_authentication.save()
             patient_medical_condition = document.cleaned_data['identity']
             document = ConditionForm()
 
@@ -98,11 +96,9 @@ class DiseaseCreate(CreateView):
 
             patient_document_authentication = document.save(commit=False)
             patient_document_authentication.user = request.user
-            patient_document_authentication.save()
+            patient_disease = patient_document_authentication.save()
 
-            patient_medical_disease = document.cleaned_data['identity']
             document = DiseaseForm()
-
             return redirect('script:script_treatment_create')
 
         context = {'form':document, 'patient_medical_disease':patient_medical_disease}
@@ -130,7 +126,7 @@ class TreatmentCreate(CreateView):
 
             patient_document_authentication = document.save(commit=False)
             patient_document_authentication.user = request.user
-            patient_document_authentication.save()
+            patient_treatment = patient_document_authentication.save()
 
             patient_medical_treatment = document.cleaned_data['identity']
             document = DiseaseForm()
@@ -139,3 +135,10 @@ class TreatmentCreate(CreateView):
 
         context = {'form':document, 'patient_medical_treatment':patient_medical_treatment}
         return render(request, self.template_, context)
+
+def consultation_creation(self, request):
+
+    consult_list = Consultation.objects.create(patient_identity=self.patient_identity, patient_condition=self.patient_condition,
+    patient_disease=self.patient_disease, patient_treatment=patient_treatment)
+    consult_list.save()
+    return

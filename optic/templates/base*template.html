@@ -10,19 +10,21 @@
   </title>
 
     {% block head %}
-    <link rel="stylesheet" type="text/css" href="{% static 'script/style.css' %}">
-      <link rel="stylesheet" type="text/css" href="{% static 'site/style.css' %}">
-        <link rel="stylesheet" type="text/css" href="{% static 'site/normalize.css' %}">
-            <link rel="stylesheet" type="text/css" href="{% static 'site/skeleton.css' %}">
+        <!-- <link rel="stylesheet" type="text/css" href="{% static 'site/normalize.css' %}">
+            <link rel="stylesheet" type="text/css" href="{% static 'site/skeleton.css' %}"> -->
     {% endblock %}
-  </head>
+
+
+      </head>
+
   <body>
-      <div class  = " container">
-              <p class=""><a class = "" href = "{%url 'optic:vedic_view'%}" style="font-family:Times New Roman;">iivri</a></p>
+  <div class  = " container">
+              <p class=""><a class = "" href = "{%url 'optic:root'%}" style="font-family:Times New Roman;">iivri</a></p>
+
 {% if user.is_authenticated %}
               <ul class = "">
                 <li class=""> <a class="" style = "font-family: Mono" href = "{% url 'script:script_patient_list' %}">  Greetings :  {{ user.first_name}} {{ user.last_name}}</a></li>
-                <li class = ""><a class="" href = "{% url 'optic:logout'%}">Sign Out</a></li>
+                <li class = ""><a class="" href = "{% url 'optic:logout'%}" style="font-family:Times New Roman">Sign Out</a></li>
                 <!-- <li class = ""><a class = "" href = "{% url 'optic:user_profile' %}">view Identity </a></li>
                 <li class = ""><a class = "" href = "{% url 'optic:edit_profile' %}">edit Identity </a></li> -->
                 <!-- <li class = ""><a class = "" href = "{% url 'optic:edit_password'%}">Change password</a> -->
@@ -32,10 +34,24 @@
                <li class = ""><a class="" href = "{% url 'optic:login'%}">Sign In</a></li>
                 <li class = ""><a class = "" href = "{% url 'optic:register'%}">Sign Up</a></li>
            </ul>
-     </div>
+
 {% endif %}
-    {% block content %}
-    {% endblock %}
-    </div>
+</div>
+
+
+<div class="container">
+  {% block content %}
+  {% endblock %}
+</div>
+
+
+
     </body>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
   </html>
